@@ -20,6 +20,9 @@ namespace UserRegistrationSystem
             Console.WriteLine(registration.ValidatePasswordFirst("+58lkuj@#"));
             //UC6:-Rule 2=Should have one Upper Case
             Console.WriteLine(registration.ValidatePasswordSecond("K8*pj&%iou"));
+            //UC7:-Rule 3=Atleast one Numeric value
+            Console.WriteLine(registration.ValidatePasswordThird("k5k*&ypK"));
+
 
 
 

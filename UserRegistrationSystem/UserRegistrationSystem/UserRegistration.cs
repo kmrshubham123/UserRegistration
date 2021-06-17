@@ -13,6 +13,7 @@ namespace UserRegistrationSystem
         public string REGEX_MOBILENUMBER = "^[1-9]{1,3}[ ][0-9]{10}$";
         public string REGEX_PASSWORDFIRST = "^[a-zA-Z0-9-+_!@#$%^&*.,?]{8,}$";
         public string REGEX_PASSWORDSECOND="^(?=.*[A-Z])[A-Za-z0-9!@#$%^&*]{8,}$";
+        public string REGEX_PASSWORDTHIRD = "^(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9-+_!@#$%^&*.,?]{8,}$";
         public bool ValidateFirstName(string firstname)
         {
             return Regex.IsMatch(firstname,REGEX_FIRSTNAME);
@@ -37,5 +38,10 @@ namespace UserRegistrationSystem
         {
             return Regex.IsMatch(password, REGEX_PASSWORDSECOND);
         }
+        public bool ValidatePasswordThird(string password)
+        {
+            return Regex.IsMatch(password, REGEX_PASSWORDTHIRD);
+        }
+
     }
 }
