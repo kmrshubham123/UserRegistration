@@ -18,6 +18,9 @@ namespace UserRegistrationSystem
             Console.WriteLine(registration.ValidateMobileNumber("91 7060731565"));
             //UC5:-Rule 1=Password minimum 8 digit 
             Console.WriteLine(registration.ValidatePasswordFirst("+58lkuj@#"));
+            //UC6:-Rule 2=Should have one Upper Case
+            Console.WriteLine(registration.ValidatePasswordSecond("K8*pj&%iou"));
+
 
 
 
