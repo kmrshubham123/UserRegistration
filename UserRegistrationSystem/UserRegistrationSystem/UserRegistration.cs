@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.RegularExpressions;
+using System.Text.RegularExpressions; //allow the pattern matching
 
 namespace UserRegistrationSystem
 {
@@ -15,10 +15,11 @@ namespace UserRegistrationSystem
         public string REGEX_PASSWORDSECOND="^(?=.*[A-Z])[A-Za-z0-9!@#$%^&*]{8,}$";
         public string REGEX_PASSWORDTHIRD = "^(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9-+_!@#$%^&*.,?]{8,}$";
         public string REGEX_PASSWORDFOURTH = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[-+_!@#$%^&*.,?{}()<>])[A-Za-z0-9-+_!@#$%^&*.,?]{8,}$";
+        public string REGEX_ALLEMAIL = "^[0-9a-zA-Z]+[.+-_]{0,1}[0-9a-zA-Z]+[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([a-zA-Z]{2,3}){0,1}";
         public bool ValidateFirstName(string firstname)
         {
-            return Regex.IsMatch(firstname,REGEX_FIRSTNAME);
-        }
+            return Regex.IsMatch(firstname,REGEX_FIRSTNAME); // Returns:True if the regular Expression find the match
+        }                                                     //otherwise:False
         public bool ValidateLastName(string lastname)
         {
             return Regex.IsMatch(lastname, REGEX_LASTNAME);
@@ -47,7 +48,10 @@ namespace UserRegistrationSystem
         {
             return Regex.IsMatch(password, REGEX_PASSWORDFOURTH);
         }
-
+        public bool ValidateAllEmail(string email)
+        {
+            return Regex.IsMatch(email, REGEX_ALLEMAIL); // Returns:True if the regular Expression find the match
+        }                                                //otherwise:False
 
     }
 }
