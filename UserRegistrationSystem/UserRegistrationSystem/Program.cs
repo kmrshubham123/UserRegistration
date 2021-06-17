@@ -10,6 +10,9 @@ namespace UserRegistrationSystem
             UserRegistration registration = new UserRegistration();
             //UC1:-Enter Valid First Name
             Console.WriteLine(registration.ValidateFirstName("Kumar"));
+            //UC1:-Enter Valid Last Name
+            Console.WriteLine(registration.ValidateLastName("Shubham"));
+
         }
     }
 }
