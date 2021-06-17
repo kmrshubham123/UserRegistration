@@ -16,6 +16,10 @@ namespace UserRegistrationSystem
             Console.WriteLine(registration.ValidateEmail("kmrshubham123@gmail.com"));
             //UC4:-Enter Valid MobileNumber
             Console.WriteLine(registration.ValidateMobileNumber("91 7060731565"));
+            //UC5:-Rule 1=Password minimum 8 digit 
+            Console.WriteLine(registration.ValidatePasswordFirst("+58lkuj@#"));
+
+
 
 
         }
