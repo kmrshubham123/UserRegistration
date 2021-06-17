@@ -14,6 +14,8 @@ namespace UserRegistrationSystem
             Console.WriteLine(registration.ValidateLastName("Shubham"));
             //UC3:-Enter Valid Email
             Console.WriteLine(registration.ValidateEmail("kmrshubham123@gmail.com"));
+            //UC4:-Enter Valid MobileNumber
+            Console.WriteLine(registration.ValidateMobileNumber("91 7060731565"));
 
 
         }
