@@ -14,6 +14,7 @@ namespace UserRegistrationSystem
         public string REGEX_PASSWORDFIRST = "^[a-zA-Z0-9-+_!@#$%^&*.,?]{8,}$";
         public string REGEX_PASSWORDSECOND="^(?=.*[A-Z])[A-Za-z0-9!@#$%^&*]{8,}$";
         public string REGEX_PASSWORDTHIRD = "^(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9-+_!@#$%^&*.,?]{8,}$";
+        public string REGEX_PASSWORDFOURTH = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[-+_!@#$%^&*.,?{}()<>])[A-Za-z0-9-+_!@#$%^&*.,?]{8,}$";
         public bool ValidateFirstName(string firstname)
         {
             return Regex.IsMatch(firstname,REGEX_FIRSTNAME);
@@ -42,6 +43,11 @@ namespace UserRegistrationSystem
         {
             return Regex.IsMatch(password, REGEX_PASSWORDTHIRD);
         }
+        public bool ValidatePasswordFourth(string password)
+        {
+            return Regex.IsMatch(password, REGEX_PASSWORDFOURTH);
+        }
+
 
     }
 }

@@ -22,6 +22,8 @@ namespace UserRegistrationSystem
             Console.WriteLine(registration.ValidatePasswordSecond("K8*pj&%iou"));
             //UC7:-Rule 3=Atleast one Numeric value
             Console.WriteLine(registration.ValidatePasswordThird("k5k*&ypK"));
+            //UC8:-Rule 3=Has Exactly one Special Character
+            Console.WriteLine(registration.ValidatePasswordFourth("Mk598*huyfr"));
 
 
 
