@@ -38,10 +38,6 @@ namespace UserRegistrationSystem
             Console.WriteLine(registration.ValidateAllEmail("abc+100@ygmail.com"));
 
 
-
-
-
-
         }
     }
 }

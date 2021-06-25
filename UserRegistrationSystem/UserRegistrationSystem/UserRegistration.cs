@@ -5,7 +5,7 @@ using System.Text.RegularExpressions; //allow the pattern matching
 
 namespace UserRegistrationSystem
 {
-    class UserRegistration
+    public class UserRegistration
     {
         public string REGEX_FIRSTNAME = "^[A-Z][a-z]{2,}$";
         public string REGEX_LASTNAME= "^[A-Z][a-z]{2,}$";
