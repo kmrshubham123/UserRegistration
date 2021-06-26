@@ -65,5 +65,17 @@ namespace UserRegistrationUnitTest
             //Assert
             Assert.IsTrue(result);
         }
+        //TC5:-Test to Validate the user Entry for All Sample Email
+        [Test]
+        public void GivenAllSampleEmail_WhenValidate_ShouldReturnTrue()
+        {
+            //Arrange
+            UserRegistration user = new UserRegistration();
+            string email = "abc@yahoo.com, abc-100@yahoo.com, abc.100@yahoo.com, abc111@abc.com, abc-100@yabc.net, abc.100@abc.com.au, abc@1.com,abc@gmail.com.com,abc+100@ygmail.com";
+            //Act
+            bool result = user.ValidateAllEmail(email);
+            //Assert
+            Assert.IsTrue(result);
+        }
     }
 }
