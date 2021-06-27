@@ -12,143 +12,40 @@ namespace UserRegistrationSystem
         public string REGEX_EMAIL = "^[a-zA-Z0-9]+([.][A-Za-z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]+([.][a-zA-Z]+)?$";
         public string REGEX_MOBILENUMBER = "^[1-9]{1,3}[ ][0-9]{10}$";
         public string REGEX_PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[-+_!@#$%^&*.,?{}()<>])[A-Za-z0-9-+_!@#$%^&*.,?]{8,}$";
-        public string REGEX_ALLEMAIL = "^[0-9a-zA-Z]+[.+-_]{0,1}[0-9a-zA-Z]+[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([a-zA-Z]{2,3}){0,1}$";
-        /// <summary>
-        /// Validate First Name 
-        /// </summary>
-        /// <param name="firstName"></param>
-        /// <returns></returns>
-        public bool ValidateFirstName(string firstName)
+        public string REGEX_ALLEMAIL = "^[0-9a-zA-Z]+[.+-_]{0,1}[0-9a-zA-Z]+[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([a-zA-Z]{2,3}){0,1}([.][a-zA-Z]{2,3})?$";
+        //UC13:-Use Lambda Function to validate User Entry
+        public bool ValidateFirstName(string firstName) => (Regex.IsMatch(firstName, REGEX_FIRSTNAME));
+        public bool ValidateLastName(string lastName) => (Regex.IsMatch(lastName, REGEX_LASTNAME));
+        public bool ValidateEmail(string email) => (Regex.IsMatch(email, REGEX_EMAIL));
+        public bool ValidateMobileNumber(string mobNumber) => (Regex.IsMatch(mobNumber, REGEX_MOBILENUMBER));
+        public bool ValidatePassword(string password) => (Regex.IsMatch(password, REGEX_PASSWORD));
+        public bool ValidateAllEmail(string allEmail) => (Regex.IsMatch(allEmail, REGEX_ALLEMAIL));
+        public void PrintResult(bool result)
         {
-            try
+            if (result)
             {
-                if (Regex.IsMatch(firstName, REGEX_FIRSTNAME))
-                {
-                    return true;
-                }
-                else
-                {
-                    throw new InvalidUserDetailException(InvalidUserDetailException.ExceptionType.INVALID_FIRST_NAME, "Invalid first name.");
-                }
+                Console.WriteLine("Valid.");
             }
-            catch (InvalidUserDetailException ex)
+            else
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Invalid.");
             }
-            return false; 
-
         }
-        /// <summary>
-        /// validate Last Name
-        /// </summary>
-        /// <param name="lastName"></param>
-        /// <returns></returns>
-        public bool ValidateLastName(string lastName)
+        public List<string> sampleEMails = new List<string>
         {
-            try
-            {
-                if (Regex.IsMatch(lastName, REGEX_LASTNAME))
-                {
-                    return true;
-                }
-                else
-                {
-                    throw new InvalidUserDetailException(InvalidUserDetailException.ExceptionType.INVALID_LAST_NAME, "Invalid last name.");
-                }
-            }
-            catch (InvalidUserDetailException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return false;
-
-        }
-        /// <summary>
-        /// Validate Email Address
-        /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
-        public bool ValidateEmail(string email)
+            "abc@yahoo.com",
+            "abc-100@yahoo.com",
+            "abc.100@yahoo.com",
+            "abc111@abc.com",
+            "abc-100@abc.net",
+            "abc.100@abc.com.au",
+            "abc@1.com",
+            "abc@gmail.com.com",
+            "abc+100@gmail.com"
+        };
+        public List<string> GetList()
         {
-            try
-            {
-                if (Regex.IsMatch(email, REGEX_EMAIL))
-                {
-                    return true;
-                }
-                else
-                {
-                    throw new InvalidUserDetailException(InvalidUserDetailException.ExceptionType.INVALID_EMAIL, "Invalid email id.");
-                }
-            }
-            catch (InvalidUserDetailException ex) 
-            { 
-                Console.WriteLine(ex.Message); 
-            }
-            return false;
-        }
-        /// <summary>
-        /// Validate Mobile Number
-        /// </summary>
-        /// <param name="mobNumber"></param>
-        /// <returns></returns>
-        public bool ValidateMobileNumber(string mobNumber)
-        {
-            try
-            {
-                if (Regex.IsMatch(mobNumber, REGEX_MOBILENUMBER))
-                {
-                    return true;
-                }
-                else
-                {
-                    throw new InvalidUserDetailException(InvalidUserDetailException.ExceptionType.INVALID_MOBILE_NUMBER, "Invalid mobile number.");
-                }
-            }
-            catch (InvalidUserDetailException ex) 
-            { 
-                Console.WriteLine(ex.Message); 
-            }
-            return false;
-        }
-
-        public bool ValidatePassword(string password)
-        {
-            try
-            {
-                if (Regex.IsMatch(password, REGEX_PASSWORD))
-                {
-                    return true;
-                }
-                else
-                {
-                    throw new InvalidUserDetailException(InvalidUserDetailException.ExceptionType.INVALID_PASSWORD, "Invalid password.");
-                }
-            }
-            catch (InvalidUserDetailException ex) 
-            { 
-                Console.WriteLine(ex.Message); 
-            }
-            return false;
-        }
-        public bool ValidateAllEmail(string email)
-        {
-            try
-            {
-                if (Regex.IsMatch(email, REGEX_ALLEMAIL))
-                {
-                    return true;
-                }
-                else
-                {
-                    throw new InvalidUserDetailException(InvalidUserDetailException.ExceptionType.INVALID_EMAIL, "Invalid email id.");
-                }
-            }
-            catch (InvalidUserDetailException ex) 
-            { 
-                Console.WriteLine(ex.Message); 
-            }
-            return false;
+            return sampleEMails;
         }
 
     }
